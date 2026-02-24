@@ -184,7 +184,7 @@
                     <span id="warning">Il y a d'autres dates dans cette ville. Vérifiez bien la date avant de valider</span>
                     <svg class = "warningIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5ZM440-360h80v-200h-80v200Zm40-100Z"/></svg>
                 </div>
-                <form class="submitForm">
+                <form class="submitForm" id ="mainForm">
                     <fieldset>
                         <legend> Informations personnelles : </legend>
                             <div class="conteneur" id="inputConteneur"> 
@@ -260,11 +260,20 @@
             </dialog>
 
             <dialog class="popUp" id="popUpConfirmation"> 
-                <button type="button" class="closeModal"> x </button>
+                
                 <p class="popUpText"> Votre réservation a bien été prise en compte ! </p>
                 <p class="popUpText"> Vos places en format numérique vous ont été envoyées à l'adresse mail suivante : </p> 
                 <p class="popUpText" id="Usermail"></p>
                 <p class="popUpText"> Amusez vous bien ! </p>
+            </dialog>
+
+            <dialog class="popUp" id="popUpError">
+                <button type="button" class="closeModal"> x </button>
+                <p> Il n'y a malheureusement aucun concert prévu à 
+                    <span id="villeCherchee"></span>
+                    <span> actuellement. </span>
+                </p>
+                <p> L'espace recherche propose automatiquement les villes disponibles lorsque vous saisissez les premières lettres </p>
             </dialog>
         </main>
 

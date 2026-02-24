@@ -1,49 +1,48 @@
-/* définir la modale + définir les boutons + ouvrir la modale on click 
-        + donner les valeurs a date/ville/lieu*/
+/* Pool de fonction réutilisables */
 
+        /*fonction d'attribution des valeurs Date/Ville/Lieu*/
+        function donneesDateVilleLieu (champ){
+            let found = false;
+            for(let i=0; i<tableauVilles.length; i++){
+                if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && !found) {
+                document.getElementById("modalVille").textContent = tableauVilles[i];
+                document.getElementById("modalDate").textContent = tableauDates[i];
+                document.getElementById("modalLieu").textContent = tableauLieux[i];
+                found = true;
+                warningDiv.style.display = "none";
+                }
+                else if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && found){  
+                    warningDiv.style.display = "inline-block";
+                };
+            };      
+            if (found){
+                modal.showModal();
+            };
+            return found;
+        };
+
+        /*fonction de calcul de la somme à payer */
+        function calculTotal(){
+            const nbPlace = Number(document.getElementById("nbPlace").value);
+            const PU = Number(document.getElementById("PU").textContent);
+            let total = nbPlace * PU;
+            document.getElementById("total").textContent = `${total}€`;
+            document.getElementById("totalPopUp").textContent = `${total}€`;
+        };
+
+        /* supprimer les div de suggestion */
+        function clearSuggestion(){
+            for(let i=suggestionContainer.children.length-1; i>=0; i--){
+                    suggestionContainer.removeChild(suggestionContainer.children[i]);
+            };
+        };
+
+/* variables définies en absolu */
+
+    /* modales */
     const modal = document.getElementById("modal1");
-    const modalBtn = document.querySelectorAll(".openModal");
-    modalBtn.forEach(function(btn){
-        btn.addEventListener("click",function(){
-        modal.showModal();
-        calculTotal();
-        const date = btn.closest("tr").querySelector(".date").textContent;
-            document.getElementById("modalDate").textContent = `${date}`;
-            document.getElementById("datePopUp").textContent = `${date}`;
-        const ville = btn.closest("tr").querySelector(".ville").textContent;
-            document.getElementById("modalVille").textContent = `${ville}`;
-            document.getElementById("villePopUp").textContent = `${ville}`;
-        const lieu = btn.closest("tr").querySelector(".lieu").textContent;
-            document.getElementById("modalLieu").textContent = `${lieu}`;
-        warningDiv.style.display = "none";
-        }); 
-    });
-
-/*calculer total (une partie est dans l'event.Listener des boutons*/
-
-    function calculTotal(){
-        const nbPlace = Number(document.getElementById("nbPlace").value);
-        const PU = Number(document.getElementById("PU").textContent);
-        let total = nbPlace * PU;
-        document.getElementById("total").textContent = `${total}€`;
-        document.getElementById("totalPopUp").textContent = `${total}€`;
-    };
-
-    document.getElementById("nbPlace").addEventListener("input",calculTotal);
-    document.getElementById("nbPlacesPopUp").textContent = document.getElementById("nbPlace").value;
-
-/* fermer la fenètre */
-
-    document.querySelectorAll(".closeModal").forEach(function(btn){
-        btn.addEventListener("click",function(){
-        btn.closest("dialog").close();
-        });
-    });
-
-
-/*récupérer les éléments dans un tableau*/
-
-    /*villes*/
+    
+    /* tableaux villes */
     const villes = document.querySelectorAll(".ville");
     const tableauVilles = Array.from(villes, function(ville){
         return ville.textContent;
@@ -52,7 +51,8 @@
     return tableauVilles.indexOf(ville)===i;
     });
 
-    /*dates*/
+    /* tableaux dates */
+
     const dates = document.querySelectorAll(".date");
     const tableauDates = Array.from(dates, function(date){
         return date.textContent;
@@ -61,21 +61,68 @@
     return tableauDates.indexOf(date)===i;
     });
 
-    /*lieux*/
+    /* tableaux lieux */
     const lieux = document.querySelectorAll(".lieu");
     const tableauLieux = Array.from(lieux, function(lieu){
         return lieu.textContent;
     });
 
-/*Autocompléter la barre*/
+    /* bouton afficher modale */
+    const modalBtn = document.querySelectorAll(".openModal");
+
+    /* DOM : Alerte doublon + suggestions + barre de recherche */
     const warningDiv = document.getElementById("alertDoublon")
     const suggestionContainer = document.getElementById("suggestion");
     const searchBarre = document.getElementById("searchBarre");
-    function clearSuggestion(){
-            for(let i=suggestionContainer.children.length-1; i>=0; i--){
-                    suggestionContainer.removeChild(suggestionContainer.children[i]);
-            };
+
+    /* Pop-up commande */
+    const popUpCommande = document.getElementById("popUpCommande");
+
+    /* pop-up confirmation */
+    const popUpConfirmation = document.getElementById("popUpConfirmation")
+
+
+/* Evènements */
+
+    /* Clic bouton tableau */
+    modalBtn.forEach(function(btn){
+        btn.addEventListener("click",function(){
+            modal.showModal();
+            calculTotal();
+            const date = btn.closest("tr").querySelector(".date").textContent;
+                document.getElementById("modalDate").textContent = `${date}`;
+                document.getElementById("datePopUp").textContent = `${date}`;
+            const ville = btn.closest("tr").querySelector(".ville").textContent;
+                document.getElementById("modalVille").textContent = `${ville}`;
+                document.getElementById("villePopUp").textContent = `${ville}`;
+            const lieu = btn.closest("tr").querySelector(".lieu").textContent;
+                document.getElementById("modalLieu").textContent = `${lieu}`;
+            warningDiv.style.display = "none";
+        }); 
+    });
+
+    /* clic loupe */
+    const loupeBtn = document.getElementById("loupe");
+        loupeBtn.addEventListener("click", function(){
+            donneesDateVilleLieu(searchBarre.value);
+        if (donneesDateVilleLieu(searchBarre.value)===false){
+            document.getElementById("villeCherchee").textContent = `"${document.getElementById("searchBarre").value}"`;
+            document.getElementById("popUpError").showModal();
         };
+    });   
+
+    /* recalcul du total quand nbPlace change*/
+    document.getElementById("nbPlace").addEventListener("input",calculTotal);
+    
+    /* fermer les modales sur les X */
+
+    document.querySelectorAll(".closeModal").forEach(function(btn){
+        btn.addEventListener("click",function(){
+            btn.closest("dialog").close();
+        });
+    });
+
+    /* Input searchBarre */
     searchBarre.addEventListener("input",function(){
         switch(searchBarre.value){
             case "" : clearSuggestion();  
@@ -92,35 +139,21 @@
                     div.addEventListener("click",function(){
                         searchBarre.value = ville;
                         clearSuggestion();
-                        let found = false;
-                        for(let i=0; i<tableauVilles.length; i++){
-                            if (tableauVilles[i].toLowerCase() === ville.toLowerCase() && !found){
-                                document.getElementById("modalDate").textContent = tableauDates[i];
-                                document.getElementById("modalVille").textContent = tableauVilles[i];
-                                document.getElementById("modalLieu").textContent = tableauLieux[i];
-                                found = true;
-                                warningDiv.style.display = "none";
-                            }
-                            else if (tableauVilles[i].toLowerCase() === ville.toLowerCase() && found){  
-                                warningDiv.style.display = "inline-block";
-                            };
-                        };
-                        modal.showModal(); 
-                    });   
+                        donneesDateVilleLieu(ville);        
+                    });
                 });
         };
     });
 
-/* pop-up confirmation de commande */
-    const popUpCommande = document.getElementById("popUpCommande");
-    document.querySelector(".submitForm").addEventListener("submit", function(event){
+    /* ouverture PopUpCommande */
+    document.getElementById("mainForm").addEventListener("submit", function(event){
         setTimeout(function(){
-        popUpCommande.showModal();
-        }, 5);
+            popUpCommande.showModal();
+        }, 1);
          event.preventDefault();
     });
 
-/* Go back to first modale */
+    /* Clic retour vers modal1 */
     document.getElementById("retour").addEventListener("click",function(){
         popUpCommande.close();
             setTimeout(function(){
@@ -128,8 +161,8 @@
         }, 1);
     });
 
-/* message de confirmation de commande */
-    const popUpConfirmation = document.getElementById("popUpConfirmation")
+    /* message de confirmation de commande */
+    
     document.getElementById("validationCommande").addEventListener("click",function(){
         popUpCommande.close();
         document.getElementById("Usermail").textContent = document.getElementById("mail").value;
@@ -138,25 +171,4 @@
         }, 1);
     });
 
-/* clic sur loupe*/
-    const loupeBtn = document.getElementById("loupe");
-    loupeBtn.addEventListener("click",function(){
 
-        const inputText = searchBarre.value.toLowerCase();
-        let found = false;
-        for(let i=0; i<tableauVilles.length; i++){
-        if (tableauVilles[i].toLowerCase() === inputText && !found) {
-            document.getElementById("modalVille").textContent = tableauVilles[i];
-            document.getElementById("modalDate").textContent = tableauDates[i];
-            document.getElementById("modalLieu").textContent = tableauLieux[i];
-            found = true;
-            warningDiv.style.display = "none";
-        }
-        else if (tableauVilles[i].toLowerCase() === inputText && found){  
-            warningDiv.style.display = "inline-block";
-        };
-        };
-        modal.showModal();
-    });
-   
-    
