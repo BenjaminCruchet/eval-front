@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head> 
+        <meta charset="UTF-8">
+        <title> ABGYhuDJ tournée </title>
+        <link rel = "stylesheet" href="./reservation.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <meta description = "Prenez vos places pour un show d'une heure 30 en compagnie du célèbre ABGYhuDJ">
+        <meta keywords = "ABGYhuDJ, youtube, concert, tournée, places, reservation">
+        <meta name="viewport" content="width=device-width, initial-scale =1.0">
+        <link rel="icon" type="image/png" href="./Images/logo.png">
+    </head>
+
+    <body>
+        <header>
+            <a id="homeLink" href="./index.html" title="Accueil">
+                <svg id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+            </a>
+            <h1 id="title"> <strong> La tournée </strong> </h1>    
+        </header>
+
+        <main>
+            
+            <div id = "searchContainer">
+                <form id ="form"> 
+                    <input type="search" id="searchBarre" placeholder="ABGYhuDJ en concert dans ta ville ?">
+                    <button type="button" id="loupe"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path id ="logoLoupe" d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg> </button>
+                </form>  
+                <div id="suggestion"></div>
+            </div>
+
+            <div class = "scrolleur">
+                <div class ="centreur" > 
+                    <table id="concerts">
+                        <thead>
+                            <tr> 
+                                <th scope = "col"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M291.5-411.5Q280-423 280-440t11.5-28.5Q303-480 320-480t28.5 11.5Q360-457 360-440t-11.5 28.5Q337-400 320-400t-28.5-11.5Zm160 0Q440-423 440-440t11.5-28.5Q463-480 480-480t28.5 11.5Q520-457 520-440t-11.5 28.5Q497-400 480-400t-28.5-11.5Zm160 0Q600-423 600-440t11.5-28.5Q623-480 640-480t28.5 11.5Q680-457 680-440t-11.5 28.5Q657-400 640-400t-28.5-11.5ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg> Date </th>
+                                <th scope = "col"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-120v-560h240v-80l120-120 120 120v240h240v400H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z"/></svg>Ville </th>
+                                <th scope = "col"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Lieu </th>
+                                <th scope = "col"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480q0-17-11.5-28.5T480-520q-17 0-28.5 11.5T440-480q0 17 11.5 28.5T480-440Zm0-160q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm320 440H160q-33 0-56.5-23.5T80-240v-160q33 0 56.5-23.5T160-480q0-33-23.5-56.5T80-560v-160q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v160q-33 0-56.5 23.5T800-480q0 33 23.5 56.5T880-400v160q0 33-23.5 56.5T800-160Zm0-80v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102h640ZM480-480Z"/></svg> Réservation </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="date">16/01/2026</td>
+                                <td class="ville">Caen</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                             <tr>
+                                <td class="date">30/01/2026</td>
+                                <td class="ville">Bordeaux</td>
+                                <td class="lieu">Arkéa Arena</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">13/02/2026</td>
+                                <td class="ville">Strasbourg</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">27/02/2026</td>
+                                <td class="ville">Nice</td>
+                                <td class="lieu">Palais Nikaïa</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                                <tr>
+                                <td class="date">13/03/2026</td>
+                                <td class="ville">Nantes</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">27/03/2026</td>
+                                <td class="ville">Lille</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">10/04/2026</td>
+                                <td class="ville">Dijon</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">24/04/2026</td>
+                                <td class="ville">Lyon-Décines</td>
+                                <td class="lieu">LDLC Arena</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">08/05/2026</td>
+                                <td class="ville">Clermont-Ferrand</td>
+                                <td class="lieu">Zénith d'Auvergne</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">22/05/2026</td>
+                                <td class="ville">Orléans</td>
+                                <td class="lieu">Co'met</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">05/06/2026</td>
+                                <td class="ville">Reims</td>
+                                <td class="lieu">Arena</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">19/06/2026</td>
+                                <td class="ville">Limoges</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">11/09/2026</td>
+                                <td class="ville">Paris</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">12/09/2026</td>
+                                <td class="ville">Paris</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">13/09/2026</td>
+                                <td class="ville">Paris</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">25/09/2026</td>
+                               <td class="ville">Rouen</td>
+                                <td class="lieu">Zénith</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">09/10/2026</td>
+                                <td class="ville">Marseille</td>
+                                <td class="lieu">Le Dôme</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">23/10/2026</td>
+                                <td class="ville">Montpellier</td>
+                                <td class="lieu">Sud de France Arena</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">06/11/2026</td>
+                                <td class="ville">Le Mans</td>
+                                <td class="lieu"> Antarès </td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+                            <tr>
+                                <td class="date">20/11/2026</td>
+                                <td class="ville">Laval</td>
+                                <td class="lieu">Le 6 par 4</td>
+                                <td><button type="button" class="openModal"> Réserver </button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            <dialog class="popUp" id="modal1">
+                <button type="button" class="closeModal" id="closeModal1">X</button>
+                <div class="conteneur" id="modalTitleConteneur">
+                    <h2 id="modalTitle"> Concert de ABGYhuDJ </h2>
+                </div>
+                <div class="conteneur" id="modalCoreMessage">
+                    <p>Le : 
+                        <span id="modalDate"></span> 
+                        <span> à : </span> 
+                        <span id="modalVille"></span> 
+                        <span> lieu : </span> 
+                        <span id="modalLieu"></span> 
+                    </p>
+                </div>
+                <div class="alert" id="alertDoublon"> 
+                    <svg class = "warningIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5ZM440-360h80v-200h-80v200Zm40-100Z"/></svg>
+                    <span id="warning">Il y a d'autres dates dans cette ville. Vérifiez bien la date avant de valider</span>
+                    <svg class = "warningIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5ZM440-360h80v-200h-80v200Zm40-100Z"/></svg>
+                </div>
+                <form class="submitForm">
+                    <fieldset>
+                        <legend> Informations personnelles : </legend>
+                            <div class="conteneur" id="inputConteneur"> 
+                                <div class="conteneurLabelInput">
+                                    <label for="Nom"> Nom<span class = "mandatory">*</span> </label>
+                                    <input type="text" name ="Nom" id="Nom" placeholder ="Durant" required>
+                                </div>
+                                <div class="conteneurLabelInput">
+                                    <label for="Prenom"> Prénom<span class = "mandatory">*</span> </label>
+                                    <input type="text"  name ="Prenom" id="Prenom" placeholder ="Michel" required>
+                                </div>
+                                <div class="conteneurLabelInput">
+                                    <label for="Mail"> Mail<span class = "mandatory">*</span> </label> 
+                                    <input type="email" name ="Mail" id="mail" placeholder ="durantmichel@gmail.com" required>
+                                </div>
+                                <div class="conteneurLabelInput">
+                                    <label for="Tel"> Téléphone </label>
+                                    <input type="tel" pattern="[0][6,7]([0-9]{2}){4}" name ="Tel" placeholder ="0605040302">
+                                </div>
+                            </div>
+                    </fieldset>
+                    <fieldset> 
+                        <legend> Tarifs : </legend>
+                        <div> 
+                            <p> Tarif unique :
+                                <span id= "PU"> 35 </span> <span> € </span>
+                            </p> 
+                            <p> Nombre de places : 
+                                <span>
+                                    <select id="nbPlace">
+                                        <option value="1"> 1 </option>
+                                        <option value="2"> 2 </option>
+                                        <option value="3"> 3 </option>
+                                        <option value="4"> 4 </option>
+                                        <option value="5"> 5 </option>
+                                        <option value="6"> 6 </option>
+                                        <option value="7"> 7 </option>
+                                        <option value="8"> 8 </option>
+                                        <option value="9"> 9 </option>
+                                        <option value="10"> 10 </option>
+                                </span>
+                                    </select>       
+                            </p>             
+                        <p> Total : 
+                            <span id="total"></span> 
+                        </p>
+                        <button type="submit" class="secondary-button" id="reservation"> Réserver </button>
+                    </fieldset>
+                </form>
+            </dialog>
+
+            <dialog class="popUp" id="popUpCommande">
+                <div class="container" id="buttonContainer"> 
+                    <button type="button" id="retour"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M280-200v-80h284q63 0 109.5-40T720-420q0-60-46.5-100T564-560H312l104 104-56 56-200-200 200-200 56 56-104 104h252q97 0 166.5 63T800-420q0 94-69.5 157T564-200H280Z"/></svg> </button>
+                    <button type="button" class="closeModal"> x </button>
+                </div>
+                <p class="popUpText"> Confirmez-vous l'achat de 
+                    <span id="nbPlacesPopUp"></span>
+                    <span> places pour le concert du </span>
+                    <span id="datePopUp"></span>
+                    <span> à </span>
+                    <span id="villePopUp"></span>
+                    <span> pour un total de </span></spans>
+                    <span id="totalPopUp"></span>
+                    <span> ? </span>
+                </p>
+                <p class="popUpText"> Ce concert débutera à 20h </p>
+                
+                <form>     
+                    <button type="button" class="secondary-button" id="validationCommande"> Confirmer </button>
+                </form>    
+                
+            </dialog>
+
+            <dialog class="popUp" id="popUpConfirmation"> 
+                <button type="button" class="closeModal"> x </button>
+                <p class="popUpText"> Votre réservation a bien été prise en compte ! </p>
+                <p class="popUpText"> Vos places en format numérique vous ont été envoyées à l'adresse mail suivante : </p> 
+                <p class="popUpText" id="Usermail"></p>
+                <p class="popUpText"> Amusez vous bien ! </p>
+            </dialog>
+        </main>
+
+        <footer>
+            <p id="pFooter"> &copy ABGYhuDJ. Tous droits réservés. </p>
+        </footer>
+        <script src="./reservation.js"></script>
+    </body>
+</html>
