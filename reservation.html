@@ -5,8 +5,8 @@
         <title> ABGYhuDJ tournée </title>
         <link rel = "stylesheet" href="./reservation.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <meta description = "Prenez vos places pour un show d'une heure 30 en compagnie du célèbre ABGYhuDJ">
-        <meta keywords = "ABGYhuDJ, youtube, concert, tournée, places, reservation">
+        <meta name = "description" content = "Prenez vos places pour un show d'une heure 30 en compagnie du célèbre ABGYhuDJ">
+        <meta name ="keywords" content = "ABGYhuDJ, youtube, concert, tournée, places, reservation">
         <meta name="viewport" content="width=device-width, initial-scale =1.0">
         <link rel="icon" type="image/png" href="./Images/logo.png">
     </head>
@@ -177,15 +177,22 @@
                     <h2 id="modalTitle"> Concert de ABGYhuDJ </h2>
                 </div>
                 <div class="conteneur" id="modalCoreMessage">
-                    <p id="infosDateVilleLieu">Le : 
+                    <div class = conteneur >
+                        <span class="modalCoreText"> Le : </span> 
                         <span class="textInsert" id="modalDate"></span> 
-                        <span> à : </span> 
+                    </div>
+                    <div class = conteneur >
+                        <span class="modalCoreText"> à : </span> 
                         <span class="textInsert" id="modalVille"></span> 
-                        <span> lieu : </span> 
+                    </div>
+                    <div class = conteneur >
+                        <span class="modalCoreText"> lieu : </span> 
                         <span class="textInsert" id="modalLieu"></span>
+                    </div>
+                    <div class = conteneur >
                         <span> horaire : </span>
-                        <span class="textInsert" id="modalheure"> 20h</span>
-                    </p>
+                        <span class="textInsert" id="modalHeure"> 20h</span>
+                    </div>
                 </div>
                 <div class="alert" id="alertDoublon"> 
                     <svg class = "warningIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5ZM440-360h80v-200h-80v200Zm40-100Z"/></svg>
@@ -209,8 +216,8 @@
                                     <input type="email" name ="Mail" id="mail" placeholder ="durantmichel@gmail.com" required>
                                 </div>
                                 <div class="conteneurLabelInput">
-                                    <label for="Tel"> Téléphone </label>
-                                    <input type="tel" pattern="[0][6,7]([0-9]{2}){4}" name ="Tel" placeholder ="0605040302">
+                                    <label for="tel"> Téléphone </label>
+                                    <input type="tel" name ="tel" id="tel" pattern="[0][67]([0-9]{2}){4}" placeholder ="0605040302">
                                 </div>
                             </div>
                     </fieldset>
@@ -220,7 +227,7 @@
                             <p> Tarif unique :
                                 <span id= "PU"> 35 </span> <span> € </span>
                             </p> 
-                            <p> Nombre de places : 
+                           <label for="nbPlace"> Nombre de places : </label>  
                                 <span>
                                     <select id="nbPlace">
                                         <option value="1"> 1 </option>
@@ -233,8 +240,8 @@
                                         <option value="8"> 8 </option>
                                         <option value="9"> 9 </option>
                                         <option value="10"> 10 </option>
-                                </span>
-                                    </select>       
+                                    </select>    
+                                </span>   
                             </p>             
                         <p> Total : 
                             <span class = textInsert id="total"></span> 
@@ -253,7 +260,7 @@
                     <span id="datePopUp"></span>
                     <span> à </span>
                     <span id="villePopUp"></span>
-                    <span> pour un total de </span></spans>
+                    <span> pour un total de </span>
                     <span id="totalPopUp"></span>
                     <span> ? </span>
                 </p>

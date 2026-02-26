@@ -95,13 +95,13 @@
             const lieu = btn.closest("tr").querySelector(".lieu").textContent;
                 document.getElementById("modalLieu").textContent = `${lieu}`;
             warningDiv.style.display = "none";
+            modal.querySelector("input, select, textarea, button").focus();
         }); 
     });
 
     /* clic loupe */
     const loupeBtn = document.getElementById("loupe");
         loupeBtn.addEventListener("click", function(){
-            donneesDateVilleLieu(searchBarre.value);
         if (donneesDateVilleLieu(searchBarre.value)===false){
             document.getElementById("villeCherchee").textContent = `"${document.getElementById("searchBarre").value}"`;
             document.getElementById("popUpError").showModal();
