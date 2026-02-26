@@ -33,34 +33,31 @@ main{
 /* En-tête */
 
 header{
+    display : flex;
     position: sticky;
     top : 0px;
     margin : 3vh;
-    text-align : center;
     border-radius : 20px;
-    width : 1500px;
+    width : 1500px; 
     max-width : 100vw;
+    border: 3px solid red;
+    background-color : rgb(0,0,0,0.65);
+    padding: 1vh;
 }
 
 #home {
-    fill : black;
-    width: 4rem;
-    height: 4rem;
-    position: fixed;
-    left: 22vw;
-    top: 3rem;
+    fill : white;
+    width: 3rem;
+    height: 3rem;
 }
 
 
 #title{
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI';
     color : white;
-    align-self : center;
-    border: 3px solid red;
     border-radius : 20px;
-    padding: 1vh 1vh;
     -webkit-text-stroke : 0.5px red;
-    background-color : rgb(0,0,0,0.65);
+    margin : 0 auto;
 }
 
 /* boutons */
@@ -70,6 +67,7 @@ header{
     border : solid black 2px;
     color : #FFFFFF;
     transition: all 0.2s linear 0s ;
+    padding : 10px 20px;
 }
 .primary-button:hover{
     opacity: 1;
@@ -85,6 +83,7 @@ header{
     border-radius : 5px;
     transition: all 0.2s linear 0s;
     text-decoration : none;
+    padding : 5px 10px;
 }
 
 .secondary-button:hover{
@@ -176,7 +175,7 @@ input::placeholder{
     overflow-y: auto;
     width : 1500px;
     max-width : 100vw;
-    height : 70vh;
+    height : 60vh;
     background-color : rgba(242, 242, 242, 0.5);
 
 }
@@ -231,23 +230,49 @@ td{
 
 
 /* Gestion de la modale*/
-#modal1{
-    border-radius : 20px;
-    border : 1px solid red;
-}
 
 .openModal{
     border-radius : 10px;
 }
 
-.closeModal{
+.closeModal,
+#retour{
     position : absolute;
-    top :0;
-    right : 0;
-    background-color : transparent;
-    border : none;
+    top :-1em !important;
+    color : white;
+    background-color : black;
     width : 30px;
-    height : 30px; 
+    height : 30px;
+    border : 1px solid white;
+    border-radius : 50%;
+}
+
+.closeModal{
+    right : -1em;
+}
+
+#returnIcon{
+    fill : white;
+    background-color: black;
+    width : 30px;
+    height : 30px;
+    border-radius: 50%;
+}
+
+#retour{
+    display:flex;
+    left : -1em !important;
+    padding: 0;
+}
+
+.textInsert{
+    display : inline-block;
+    margin-right : 5em;
+    font-weight: bold;
+}
+
+#total{
+    margin-right : 0;
 }
 
 .warningIcon{
@@ -284,7 +309,9 @@ legend{
 
 /* pop-up*/
 .popUp{
-    border-radius : 10px;
+    overflow: visible;
+    border-radius : 20px;
+    border : 2px solid black;
     text-align : center;
 }
 .popUpText{
@@ -300,7 +327,15 @@ legend{
     background-color : transparent;
 }
 
-/* formulaires */
+/* Nous contacter */
+
+#nousContacter{
+    margin-top : 3em;
+    margin-bottom : 2em;
+    padding : 1em;
+    border : 2px solid white;
+    border-radius : 20px;
+}
 
 /* footer */
 footer{

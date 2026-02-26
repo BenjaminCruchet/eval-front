@@ -27,7 +27,6 @@
             const PU = Number(document.getElementById("PU").textContent);
             let total = nbPlace * PU;
             document.getElementById("total").textContent = `${total}€`;
-            document.getElementById("totalPopUp").textContent = `${total}€`;
         };
 
         /* supprimer les div de suggestion */
@@ -91,10 +90,8 @@
             calculTotal();
             const date = btn.closest("tr").querySelector(".date").textContent;
                 document.getElementById("modalDate").textContent = `${date}`;
-                document.getElementById("datePopUp").textContent = `${date}`;
             const ville = btn.closest("tr").querySelector(".ville").textContent;
                 document.getElementById("modalVille").textContent = `${ville}`;
-                document.getElementById("villePopUp").textContent = `${ville}`;
             const lieu = btn.closest("tr").querySelector(".lieu").textContent;
                 document.getElementById("modalLieu").textContent = `${lieu}`;
             warningDiv.style.display = "none";
@@ -147,6 +144,10 @@
 
     /* ouverture PopUpCommande */
     document.getElementById("mainForm").addEventListener("submit", function(event){
+        document.getElementById("nbPlacesPopUp").textContent = document.getElementById("nbPlace").value
+        document.getElementById("datePopUp").textContent = document.getElementById("modalDate").textContent
+        document.getElementById("villePopUp").textContent =  document.getElementById("modalVille").textContent
+        document.getElementById("totalPopUp").textContent =  document.getElementById("total").textContent
         setTimeout(function(){
             popUpCommande.showModal();
         }, 1);
@@ -170,5 +171,3 @@
             popUpConfirmation.showModal();
         }, 1);
     });
-
-
