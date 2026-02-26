@@ -171,13 +171,10 @@
                     <h2 id="modalTitle"> Concert de ABGYhuDJ </h2>
                 </div>
                 <div class="conteneur" id="modalCoreMessage">
-                    <p>Le : 
-                        <span id="modalDate"></span> 
-                        <span> à : </span> 
-                        <span id="modalVille"></span> 
-                        <span> lieu : </span> 
-                        <span id="modalLieu"></span> 
-                    </p>
+                    <div class="conteneur" id="InfoDate"> <span> Le : </span> <span class="textInsert" id="modalDate"></span> </div>
+                    <div class="conteneur" id="InfoVille"> <span> à : </span> <span class="textInsert" id="modalVille"></span> </div>
+                    <div class="conteneur" id="InfoLieu"> <span> lieu : </span> <span class="textInsert" id="modalLieu"></span> </div>     
+                    <div class="conteneur" id="InfoHeure"> <span> à : </span> <span class="textInsert" id="modalheure"> 20h.</span> </div>     
                 </div>
                 <div class="alert" id="alertDoublon"> 
                     <svg class = "warningIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5ZM440-360h80v-200h-80v200Zm40-100Z"/></svg>
@@ -229,7 +226,7 @@
                                     </select>       
                             </p>             
                         <p> Total : 
-                            <span id="total"></span> 
+                            <span class = textInsert id="total"></span> 
                         </p>
                         <button type="submit" class="secondary-button" id="reservation"> Réserver </button>
                     </fieldset>
