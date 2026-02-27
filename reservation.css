@@ -33,7 +33,7 @@ main{
 
 header{
     display : flex;
-    position: sticky;
+    align-items : center;
     top : 0px;
     margin : 3vh;
     border-radius : 20px;
@@ -139,7 +139,7 @@ input::placeholder{
 }
 
 
-#suggestion{
+#suggestionContainer{
     overflow-y: auto;
     max-height : 6rem;
     position : absolute;
@@ -148,7 +148,7 @@ input::placeholder{
     width : 100%;
     
 }
-#suggestion div {
+#suggestionContainer div {
     display:flex;
     flex-direction : column;
     background-color: rgb(255,255,255,1);
@@ -160,24 +160,27 @@ input::placeholder{
 
     
 }
-#suggestion div:hover{
+#suggestionContainer div:hover{
      color : #FF0000;
 }
 
 /* paramètrage du tableau */
+
 .centreur{
     margin : 0 auto;
+    width : 1500px;
+    max-width : 90vw;
 }
 
 .scrolleur{
     position : sticky;
     overflow-y: auto;
     width : 1500px;
-    max-width : 100vw;
+    max-width : 90vw;
     height : 60vh;
     background-color : rgba(242, 242, 242, 0.5);
-
 }
+
 
 table{
     width : 100%;
@@ -212,7 +215,6 @@ th{
     top : 0;
     background-color : black;
     text-align : center;
-    z-index : 50;
     padding : 0.5em;
     box-sizing: border-box;
     min-width : 0;
@@ -264,6 +266,9 @@ td{
     padding: 0;
 }
 
+.legend{
+    margin-top : 0.5em;
+}
 .textInsert{
     display : inline-block;
     margin-right : 2em;
@@ -350,3 +355,4 @@ footer{
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+

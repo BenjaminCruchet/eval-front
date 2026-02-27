@@ -42,7 +42,6 @@ main{
 /* En-tête */
 
 header{
-    position: sticky;
     top : 0px;
     margin : 3vh;
     text-align : center;

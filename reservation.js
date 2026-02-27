@@ -1,41 +1,3 @@
-/* Pool de fonction réutilisables */
-
-        /*fonction d'attribution des valeurs Date/Ville/Lieu*/
-        function donneesDateVilleLieu (champ){
-            let found = false;
-            for(let i=0; i<tableauVilles.length; i++){
-                if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && !found) {
-                document.getElementById("modalVille").textContent = tableauVilles[i];
-                document.getElementById("modalDate").textContent = tableauDates[i];
-                document.getElementById("modalLieu").textContent = tableauLieux[i];
-                found = true;
-                warningDiv.style.display = "none";
-                }
-                else if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && found){  
-                    warningDiv.style.display = "inline-block";
-                };
-            };      
-            if (found){
-                modal.showModal();
-            };
-            return found;
-        };
-
-        /*fonction de calcul de la somme à payer */
-        function calculTotal(){
-            const nbPlace = Number(document.getElementById("nbPlace").value);
-            const PU = Number(document.getElementById("PU").textContent);
-            let total = nbPlace * PU;
-            document.getElementById("total").textContent = `${total}€`;
-        };
-
-        /* supprimer les div de suggestion */
-        function clearSuggestion(){
-            for(let i=suggestionContainer.children.length-1; i>=0; i--){
-                    suggestionContainer.removeChild(suggestionContainer.children[i]);
-            };
-        };
-
 /* variables définies en absolu */
 
     /* modales */
@@ -71,7 +33,7 @@
 
     /* DOM : Alerte doublon + suggestions + barre de recherche */
     const warningDiv = document.getElementById("alertDoublon")
-    const suggestionContainer = document.getElementById("suggestion");
+    const suggestionContainer = document.getElementById("suggestionContainer");
     const searchBarre = document.getElementById("searchBarre");
 
     /* Pop-up commande */
@@ -79,6 +41,50 @@
 
     /* pop-up confirmation */
     const popUpConfirmation = document.getElementById("popUpConfirmation")
+
+/* Pool de fonction réutilisables */
+
+        /*fonction d'attribution des valeurs Date/Ville/Lieu*/
+        function donneesDateVilleLieu (champ){
+            let found = false;
+            for(let i=0; i<tableauVilles.length; i++){
+                if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && !found) {
+                document.querySelectorAll(".modalVille").forEach(function(element){
+                    element.textContent = tableauVilles[i];
+                })
+                document.querySelectorAll(".modalDate").forEach(function(element){
+                    element.textContent = tableauDates[i];
+                })
+                document.querySelectorAll(".modalLieu").forEach(function(element){
+                    element.textContent = tableauLieux[i];
+                })
+                found = true;
+                warningDiv.style.display = "none";
+                }
+                else if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && found){  
+                    warningDiv.style.display = "inline-block";
+                };
+            };      
+            if (found){
+                modal.showModal();
+            };
+            return found;
+        };
+
+        /*fonction de calcul de la somme à payer */
+        function calculTotal(){
+            const nbPlace = Number(document.getElementById("nbPlace").value);
+            const PU = Number(document.getElementById("PU").textContent);
+            let total = nbPlace * PU;
+            document.getElementById("total").textContent = `${total}€`;
+        };
+
+        /* supprimer les div de suggestion */
+        function clearSuggestion(){
+            for(let i=suggestionContainer.children.length-1; i>=0; i--){
+                    suggestionContainer.removeChild(suggestionContainer.children[i]);
+            };
+        };
 
 
 /* Evènements */
@@ -89,11 +95,17 @@
             modal.showModal();
             calculTotal();
             const date = btn.closest("tr").querySelector(".date").textContent;
-                document.getElementById("modalDate").textContent = `${date}`;
+                document.querySelectorAll(".modalDate").forEach(function(element){
+                    element.textContent = `${date}`;
+                });
             const ville = btn.closest("tr").querySelector(".ville").textContent;
-                document.getElementById("modalVille").textContent = `${ville}`;
+                document.querySelectorAll(".modalVille").forEach(function(element){
+                element.textContent = `${ville}`;
+                });
             const lieu = btn.closest("tr").querySelector(".lieu").textContent;
-                document.getElementById("modalLieu").textContent = `${lieu}`;
+                document.querySelectorAll(".modalLieu").forEach(function(element){
+                element.textContent = `${lieu}`;
+                });
             warningDiv.style.display = "none";
             modal.querySelector("input, select, textarea, button").focus();
         }); 
@@ -105,6 +117,7 @@
         if (donneesDateVilleLieu(searchBarre.value)===false){
             document.getElementById("villeCherchee").textContent = `"${document.getElementById("searchBarre").value}"`;
             document.getElementById("popUpError").showModal();
+            modal.querySelector("input, select, textarea, button").focus();
         };
     });   
 
@@ -129,15 +142,17 @@
                 const match = tableauVillesUniques.filter(function(ville){
                     return ville.toLowerCase().startsWith(inputText);
                 });
-                match.forEach(function(ville){
+                match.forEach(function(ville, index){
                     const div = document.createElement("div");
                     div.textContent = ville;
-                    suggestionContainer.appendChild(div); 
+                    div.setAttribute("tabindex",0)
+                    div.setAttribute("role","option")
                     div.addEventListener("click",function(){
                         searchBarre.value = ville;
                         clearSuggestion();
                         donneesDateVilleLieu(ville);        
                     });
+                    suggestionContainer.appendChild(div);
                 });
         };
     });
@@ -145,11 +160,12 @@
     /* ouverture PopUpCommande */
     document.getElementById("mainForm").addEventListener("submit", function(event){
         document.getElementById("nbPlacesPopUp").textContent = document.getElementById("nbPlace").value
-        document.getElementById("datePopUp").textContent = document.getElementById("modalDate").textContent
-        document.getElementById("villePopUp").textContent =  document.getElementById("modalVille").textContent
+        document.getElementById("datePopUp").textContent = document.querySelector(".modalDate").textContent
+        document.getElementById("villePopUp").textContent =  document.querySelector(".modalVille").textContent
         document.getElementById("totalPopUp").textContent =  document.getElementById("total").textContent
         setTimeout(function(){
             popUpCommande.showModal();
+            modal.querySelector("input, select, textarea, button").focus();
         }, 1);
          event.preventDefault();
     });
@@ -159,6 +175,7 @@
         popUpCommande.close();
             setTimeout(function(){
         modal.showModal();
+        modal.querySelector("input, select, textarea, button").focus();
         }, 1);
     });
 
@@ -169,5 +186,6 @@
         document.getElementById("Usermail").textContent = document.getElementById("mail").value;
         setTimeout(function(){
             popUpConfirmation.showModal();
+            modal.querySelector("input, select, textarea, button").focus();
         }, 1);
     });
