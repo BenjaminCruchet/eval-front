@@ -1,7 +1,8 @@
 /* variables définies en absolu */
 
     /* modales */
-    const modal = document.getElementById("modal1");
+    const popUpResa = document.getElementById("modal1");
+    const popUpError = document.getElementById("popUpError");
     
     /* tableaux villes */
     const villes = document.querySelectorAll(".ville");
@@ -29,7 +30,7 @@
     });
 
     /* boutons du tableau */
-    const modalBtn = document.querySelectorAll(".openModal");
+    const resaBtn = document.querySelectorAll(".openModal");
 
     /* Alerte doublon */
     const warningDiv = document.getElementById("alertDoublon");
@@ -64,9 +65,9 @@
     /* fonction erreur searchbarre */
     function errorSearchForm(){
             if (!donneesDateVilleLieu(searchBarre.value)){
-                document.getElementById("villeCherchee").textContent = `"${document.getElementById("searchBarre").value}"`;
-                document.getElementById("popUpError").showModal();
-                modal.querySelector("input, select, textarea, button").focus();
+                document.getElementById("infoCherchee").textContent = `"${document.getElementById("searchBarre").value}"`;
+                popUpError.showModal();
+                popUpError.querySelector("input, select, textarea, button").focus();
         };
         };
 
@@ -121,9 +122,9 @@
 /* Evènements */
 
     /* Clic bouton tableau */
-    modalBtn.forEach(function(btn){
+    resaBtn.forEach(function(btn){
         btn.addEventListener("click",function(){
-            modal.showModal();
+            popUpResa.showModal();
             calculTotal();
             const date = btn.closest("tr").querySelector(".date").textContent;
                 document.querySelectorAll(".modalDate").forEach(function(element){
@@ -138,17 +139,9 @@
                 element.textContent = `${lieu}`;
                 });
             warningDiv.style.display = "none";
-            modal.querySelector("input, select, textarea, button").focus();
+            popUpResa.querySelector("input, select, textarea, button").focus();
         }); 
     });
-
-    /* clic loupe 
-    const loupeBtn = document.getElementById("loupe");
-
-        loupeBtn.addEventListener("click", function(){
-        
-    });   
-    */
 
     /* recalcul du total quand nbPlace change*/
     document.getElementById("nbPlace").addEventListener("input",calculTotal);
@@ -189,6 +182,14 @@
         };
     });
 
+    /* validation recherche */
+    searchForm.addEventListener("submit",function(){
+        clearSuggestion();
+        cleanTableau(villes);
+        filtreTableau(villes);
+        errorSearchForm();
+    })
+
     /* ouverture PopUpCommande */
     document.getElementById("mainForm").addEventListener("submit", function(event){
         document.getElementById("nbPlacesPopUp").textContent = document.getElementById("nbPlace").value
@@ -197,7 +198,7 @@
         document.getElementById("totalPopUp").textContent =  document.getElementById("total").textContent
         setTimeout(function(){
             popUpCommande.showModal();
-            modal.querySelector("input, select, textarea, button").focus();
+            popUpCommande.querySelector("input, select, textarea, button").focus();
         }, 1);
          event.preventDefault();
     });
@@ -206,8 +207,8 @@
     document.getElementById("retour").addEventListener("click",function(){
         popUpCommande.close();
             setTimeout(function(){
-        modal.showModal();
-        modal.querySelector("input, select, textarea, button").focus();
+        popUpResa.showModal();
+        popUpResa.querySelector("input, select, textarea, button").focus();
         }, 1);
     });
 
@@ -218,6 +219,6 @@
         document.getElementById("Usermail").textContent = document.getElementById("mail").value;
         setTimeout(function(){
             popUpConfirmation.showModal();
-            modal.querySelector("input, select, textarea, button").focus();
+            popUpConfirmation.querySelector("input, select, textarea, button").focus();
         }, 1);
     });
