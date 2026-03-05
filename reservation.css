@@ -82,10 +82,9 @@ header{
     padding : 10px 20px;
 }
 .primary-button:hover{
-    opacity: 1;
     box-shadow: 0 3px 0 2px rgba(0,0,0,0.5);
     transform : translateY(-3px);
-    background-color: #ff1a1a;
+    background-color: rgb(255,0,0,1);
 }
 
 .secondary-button{

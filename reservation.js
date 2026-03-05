@@ -28,6 +28,9 @@
     const tableauLieux = Array.from(lieux, function(lieu){
         return lieu.textContent;
     });
+    const tableauLieuxUniques = tableauLieux.filter(function(lieu,i,tableauLieux){
+    return tableauLieux.indexOf(lieu)===i;
+    });
 
     /* boutons du tableau */
     const resaBtn = document.querySelectorAll(".openModal");
@@ -54,12 +57,19 @@
 
     /* filtre tableau */
 
-    function filtreTableau(champ){
-        champ.forEach(function(info){
-            if(info.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
-                info.parentNode.style.display = "none";
-            };
-        });    
+    function filtreTableau(){
+        villes.forEach(function(ville){
+            if(ville.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
+                dates.forEach(function(date){
+                    if(date.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
+                        lieu.forEach(function(lieu){
+                            if(lieu.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
+                        info.parentNode.style.display = "none"}
+                        })
+                    }
+                });
+            };    
+        });
     };
 
     /* fonction erreur searchbarre */
@@ -71,8 +81,8 @@
         };
         };
 
-    /*fonction d'attribution des valeurs Date/Ville/Lieu*/
-    function donneesDateVilleLieu (champ){
+    /*fonction d'attribution des valeurs Date/Ville/Lieu pour modales*/
+    function donneesDateVilleLieu(){
         let found = false;
         for(let i=0; i<tableauVilles.length; i++){
             if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && !found) {
@@ -154,33 +164,72 @@
         });
     });
 
+    /* fonction creation div */
+    function creationDiv(champ){
+        const div = document.createElement("div");
+        div.textContent = champ;
+        suggestionContainer.appendChild(div);
+        div.setAttribute("tabindex",0)
+        div.setAttribute("role","option")
+    };
+
+    /* fonction MEFTableau */
+    function MEFTableau(){
+        clearSuggestion();
+        cleanTableau(villes);
+        cleanTableau(dates);
+        cleanTableau(lieux);
+        filtreTableau();
+    }
+
+    /* fonction de match */
+    function genererSuggestion(){
+        const inputText = searchBarre.value.toLowerCase();
+        const matchDates = tableauDatesUniques.filter(function(date){
+            return date.toLowerCase().startsWith(inputText);
+        });
+        const matchVilles = tableauVillesUniques.filter(function(ville){
+            return ville.toLowerCase().startsWith(inputText);
+        });
+        const matchLieux = tableauLieuxUniques.filter(function(lieu){
+            return lieu.toLowerCase().startsWith(inputText);
+        });
+        matchVilles.forEach(function(ville){
+            creationDiv(ville);
+        });
+        matchDates.forEach(function(date){
+            creationDiv(date);
+        });
+        matchLieux.forEach(function(lieu){
+            creationDiv(lieu);
+        });
+    };
+    
+    /* on click suggestion 
+    
+     MEFTableau();
+                errorSearchForm();
+    */
+
     /* Input searchBarre */
     searchBarre.addEventListener("input",function(){
         switch(searchBarre.value){
             case "" : clearSuggestion();
             cleanTableau(villes);
             break;
-            default : clearSuggestion();
-                const inputText = searchBarre.value.toLowerCase();
-                const match = tableauVillesUniques.filter(function(ville){
-                    return ville.toLowerCase().startsWith(inputText);
-                });
-                match.forEach(function(ville){
-                    const div = document.createElement("div");
-                    div.textContent = ville;
-                    suggestionContainer.appendChild(div);
-                    div.setAttribute("tabindex",0)
-                    div.setAttribute("role","option")
-                    div.addEventListener("click",function(){
-                        searchBarre.value = ville;
-                        clearSuggestion();
-                        cleanTableau(villes);
-                        filtreTableau(villes);
-                        errorSearchForm();
-                    });
-                }); 
+            default : clearSuggestion();  
+            genererSuggestion()
         };
-    });
+    }); 
+    
+
+    /* validation recherche */
+    searchForm.addEventListener("submit",function(){
+        clearSuggestion();
+        cleanTableau(villes);
+        filtreTableau(villes);
+        errorSearchForm();
+    })
 
     /* validation recherche */
     searchForm.addEventListener("submit",function(){
