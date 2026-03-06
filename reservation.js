@@ -58,17 +58,20 @@
     /* filtre tableau */
 
     function filtreTableau(){
-        villes.forEach(function(ville){
-            if(ville.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
-                dates.forEach(function(date){
-                    if(date.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
-                        lieu.forEach(function(lieu){
-                            if(lieu.textContent.toLowerCase() !== searchBarre.value.toLowerCase()){
-                        info.parentNode.style.display = "none"}
-                        })
-                    }
-                });
-            };    
+
+        document.querySelectorAll(".ligne").forEach(function(ligne){
+
+            recherche = searchBarre.value.toLowerCase();
+            ville = ligne.querySelector(".ville").textContent.toLowerCase();
+            date = ligne.querySelector(".date").textContent.toLowerCase();
+            lieu = ligne.querySelector(".lieu").textContent.toLowerCase();
+
+            if( recherche === ville || recherche === date || recherche === lieu ){
+                ligne.style.display = "table-row";
+            }
+            else{
+                ligne.style.display ="none";
+            }
         });
     };
 
@@ -180,7 +183,7 @@
         cleanTableau(dates);
         cleanTableau(lieux);
         filtreTableau();
-    }
+    };
 
     /* fonction de match */
     function genererSuggestion(){
@@ -205,11 +208,14 @@
         });
     };
     
-    /* on click suggestion 
+    /* on click suggestion */
     
-     MEFTableau();
-                errorSearchForm();
-    */
+    suggestionContainer.addEventListener("click",function(){
+        searchBarre.value = suggestionContainer.textContent;
+        MEFTableau();
+        errorSearchForm();
+    });
+     
 
     /* Input searchBarre */
     searchBarre.addEventListener("input",function(){
@@ -225,19 +231,10 @@
 
     /* validation recherche */
     searchForm.addEventListener("submit",function(){
-        clearSuggestion();
-        cleanTableau(villes);
-        filtreTableau(villes);
+        MEFTableau();
         errorSearchForm();
     })
 
-    /* validation recherche */
-    searchForm.addEventListener("submit",function(){
-        clearSuggestion();
-        cleanTableau(villes);
-        filtreTableau(villes);
-        errorSearchForm();
-    })
 
     /* ouverture PopUpCommande */
     document.getElementById("mainForm").addEventListener("submit", function(event){
