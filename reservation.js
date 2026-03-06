@@ -1,7 +1,7 @@
 /* variables définies en absolu */
 
     /* modales */
-    const popUpResa = document.getElementById("modal1");
+    const popUpResa = document.getElementById("popUpResa");
     const popUpError = document.getElementById("popUpError");
     
     /* tableaux villes */
@@ -42,7 +42,7 @@
     const suggestionContainer = document.getElementById("suggestionContainer");
 
     /* formulaire de recherche */
-    const searchForm = document.getElementById("searchForm");
+    const loupe = document.getElementById("loupe");
 
     /*barre de recherche */
     const searchBarre = document.getElementById("searchBarre");
@@ -86,7 +86,7 @@
 
     /*fonction d'attribution des valeurs Date/Ville/Lieu pour modales*/
     function donneesDateVilleLieu(){
-        let found = false;
+        let found = 0;
         for(let i=0; i<tableauVilles.length; i++){
             if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && !found) {
             document.querySelectorAll(".modalVille").forEach(function(element){
@@ -98,13 +98,9 @@
             document.querySelectorAll(".modalLieu").forEach(function(element){
                 element.textContent = tableauLieux[i];
             })
-            found = true;
-            warningDiv.style.display = "none";
+            found += 1;
             }
-            else if (tableauVilles[i].toLowerCase() === champ.toLowerCase() && found){  
-                warningDiv.style.display = "inline-block";
-            };     
-        };
+        }
         return found;
     };
 
@@ -151,7 +147,12 @@
                 document.querySelectorAll(".modalLieu").forEach(function(element){
                 element.textContent = `${lieu}`;
                 });
+        if (donneesDateVilleLieu === 1){
             warningDiv.style.display = "none";
+        }
+        else if(donneesDateVilleLieu > 1){
+            warningDiv.style.display = "inline-block";
+        }   
             popUpResa.querySelector("input, select, textarea, button").focus();
         }); 
     });
@@ -230,7 +231,7 @@
     
 
     /* validation recherche */
-    searchForm.addEventListener("submit",function(){
+    loupe.addEventListener("click",function(){
         MEFTableau();
         errorSearchForm();
     })
@@ -249,7 +250,7 @@
          event.preventDefault();
     });
 
-    /* Clic retour vers modal1 */
+    /* Clic retour vers popUpResa */
     document.getElementById("retour").addEventListener("click",function(){
         popUpCommande.close();
             setTimeout(function(){
