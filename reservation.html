@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title> ABGYhuDJ tournée </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel = "stylesheet" href="./reservation.css">
+        <link rel = "stylesheet" href="./Global.css">
         <meta name = "description" content = "Prenez vos places pour un show d'une heure 30 en compagnie du célèbre ABGYhuDJ">
         <meta name ="keywords" content = "ABGYhuDJ, youtube, concert, tournée, places, reservation">
         <meta name="viewport" content="width=device-width, initial-scale =1.0">
@@ -197,7 +197,7 @@
             </div>
                 <div id="nousContacter">
                     <h3> Contactez-nous pour toute demande ou difficulté : </h3>
-                    <p> Par téléphone au : 02 33 44 55 66 </p>
+                    <p> Par téléphone : 02 33 44 55 66 </p>
                     <p> Par mail : abgyhudj.tournee@gmail.com </p>
                 </div>
 
@@ -323,15 +323,17 @@
                 <p class="popUpText"> Vos places en format numérique vous ont été envoyées à l'adresse mail suivante : </p> 
                 <p class="popUpText" id="Usermail"></p>
                 <p class="popUpText"> Amusez vous bien ! </p>
+                <button type="button" class="secondary-button" id="confirmationOK"> OK </button>
             </dialog>
 
             <dialog class="popUp" id="popUpError" aria-labelledby="popUpErrorTitle">
                 <h2 class="visually-hidden" id="popUpErrorTitle"> Recherche erronée </h2>
-                <button type="button" class="closeModal"> X </button>
+                <button type="submit" class="closeModal"> X </button>
                 <p> Nous n'avons malheureusement trouvé aucun évènement qui corresponde à votre recherche :
                     <span id="infoCherchee"></span>
                 </p>
                 <p> N'hésitez pas à cliquer sur les suggestions qui apparaissent lorsque vous saississez une date, une ville ou un lieu dans le champ de recherche.</p>
+            </dialog>
         </main>
 
         <footer>

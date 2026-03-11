@@ -171,11 +171,18 @@
     /* recalcul du total quand nbPlace change*/
     document.getElementById("nbPlace").addEventListener("input",calculTotal);
     
-    /* fermer les modales sur les X */
+    /* fermer les modales sur les X et le bouton OK */
 
     document.querySelectorAll(".closeModal").forEach(function(btn){
-        btn.addEventListener("click",function(){
-            btn.closest("dialog").close();
+    btn.addEventListener("click", function(){
+        document.querySelectorAll("dialog[open]").forEach(function(dialog){
+            dialog.close();
+        });
+    });
+});
+    document.getElementById("confirmationOK").addEventListener("click",function(){
+        document.querySelectorAll("dialog[open]").forEach(function(dialog){
+            dialog.close();
         });
     });
 
