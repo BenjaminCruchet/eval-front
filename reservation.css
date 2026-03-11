@@ -193,8 +193,9 @@ input::placeholder{
     width : 1500px;
     max-width : 90vw;
     height : 60vh;
-    background-color : rgba(0,0,0,0.55);
+    background-color : rgba(0,0,0,0.85);
     margin-bottom : 2em;
+    border-radius : 10px;
 }
 
 
@@ -209,22 +210,22 @@ tr{
 }
 
 tbody tr:nth-child(even){
-    background-color : rgba(0,0,0,0.85);
+    background-color : rgba(0,0,0,0.95);
 }
 
 tbody tr:nth-child(odd){
-    background-color : rgba(0,0,0,0.70);
+    background-color : rgba(0,0,0,0.90);
 }
 
 tbody tr:nth-child(even):hover,
 tbody tr:nth-child(even):focus{
-    background-color : rgba(0,0,0,0.95);
+    background-color : rgba(0,0,0,1);
     cursor : text;
 }
 
 tbody tr:nth-child(odd):hover,
 tbody tr:nth-child(odd):focus{
-    background-color : rgba(0,0,0,0.80);
+    background-color : rgba(0,0,0,0.98);
     cursor : text;
 }
 
@@ -237,7 +238,7 @@ th{
     box-sizing: border-box;
     min-width : 0;
     font-size :clamp(1rem, 4vw, 3rem);
-    color : rgba(255,0,0);
+    color : #FF0000;
 }
 
 td{
