@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benjamincruchet.github.io/eval-front/sitemap.xml
