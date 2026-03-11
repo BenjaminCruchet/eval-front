@@ -4,7 +4,7 @@ body{
     display:flex;
     flex-direction : column;
     align-items : center;
-    background: linear-gradient(rgb(255, 0, 0, 0.2),rgb(255, 0, 0, 0.2)), url(./Images/concert.png);
+    background: linear-gradient(rgb(255, 0, 0, 0.25),rgb(255, 0, 0, 0.25)), url(./Images/concert.png);
     background-repeat : no-repeat;
     background-size : cover;
     background-position: center;
@@ -75,7 +75,7 @@ header{
 /* boutons */
 
 .primary-button{
-    background-color : rgb(255,0,0,0.50);
+    background-color : rgb(255,0,0,0.65);
     border : solid black 2px;
     color : #FFFFFF;
     transition: all 0.2s linear 0s ;
@@ -209,22 +209,22 @@ tr{
 }
 
 tbody tr:nth-child(even){
-    background-color : rgba(0,0,0,0.8);
+    background-color : rgba(0,0,0,0.85);
 }
 
 tbody tr:nth-child(odd){
-    background-color : rgba(0,0,0,0.55);
+    background-color : rgba(0,0,0,0.70);
 }
 
 tbody tr:nth-child(even):hover,
 tbody tr:nth-child(even):focus{
-    background-color : rgba(0,0,0,0.9);
+    background-color : rgba(0,0,0,0.95);
     cursor : text;
 }
 
 tbody tr:nth-child(odd):hover,
 tbody tr:nth-child(odd):focus{
-    background-color : rgba(0,0,0,0.65);
+    background-color : rgba(0,0,0,0.80);
     cursor : text;
 }
 
@@ -237,7 +237,7 @@ th{
     box-sizing: border-box;
     min-width : 0;
     font-size :clamp(1rem, 4vw, 3rem);
-    color : rgba(255,0,0,0.7);
+    color : rgba(255,0,0);
 }
 
 td{
