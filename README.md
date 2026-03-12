@@ -24,30 +24,29 @@ GitHub pour l'hébergement du site via GitHub Pages.
 
 ## Structure du projet :
 
-├── CSS
-│   ├── global.css
-│   ├── index.css
-│   └── reservation.css
-│
-├── HTML
-│   └── reservation.html
-│
-├── Images
-│   ├── carousel3.webp
-│   ├── concert.webp
-│   ├── image2.webp
-│   ├── logo.webp
-│   └── resume.webp
-│
-├── JavaScript
-│   └── reservation.js
-│
-├── index.html
-├── Rapport-accessibilite-SEO.md
-├── README.md
-├── robots.txt
-└── sitemap.xml
 
+```text
+project/
+├─ CSS/
+│  ├─ global.css
+│  ├─ index.css
+│  └─ reservation.css
+├─ HTML/
+│  └─ reservation.html
+├─ Images/
+│  ├─ carousel3.webp
+│  ├─ concert.webp
+│  ├─ image2.webp
+│  ├─ logo.webp
+│  └─ resume.webp
+├─ JavaScript/
+│  └─ reservation.js
+├─ index.html
+├─ Rapport-accessibilite-SEO.md
+├─ README.md
+├─ robots.txt
+└─ sitemap.xml
+```
 
 ## Maquettage :
 
