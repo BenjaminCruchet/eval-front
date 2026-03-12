@@ -64,9 +64,8 @@ input::placeholder{
     border-radius: 5px;
     cursor: pointer;
     height: 2rem;
-
-    
 }
+
 #suggestionContainer div:hover,
 #suggestionContainer div:focus{
      color: #FF0000;
@@ -178,6 +177,7 @@ td{
 .legend{
     margin-top: 0.5em;
 }
+
 .textInsert{
     display: inline-block;
     margin-right: 2em;
@@ -192,6 +192,7 @@ td{
     fill: #FF0000;
     background-color: yellow;
 }
+
 .mandatory{
     color:#FF0000;
 }
@@ -240,4 +241,13 @@ legend{
 
 form{
     overflow: hidden;
+}
+
+@media(max-width: 768px) {
+    #inputConteneur{
+    display: flex;
+    flex-direction : column;
+    align-items : center;
+    padding: 5px;
+}
 }
