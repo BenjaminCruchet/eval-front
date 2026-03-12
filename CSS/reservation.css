@@ -1,0 +1,243 @@
+#home{
+    fill: #FFFFFF;
+    width: 3em;
+    height: 3em;
+}
+
+/* champs de texte (recherche et modales) */
+
+input{
+    display: block;
+    border: 1px solid #F2F2F2;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+input::placeholder{
+    color:#CCCCCC;
+}
+
+/* champ de recherche */
+#searchContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self:first baseline;
+    width: 375px;
+    max-width:100%;
+    margin-bottom: 3vh;
+}
+
+#searchBarre{
+    width: 100%;
+    height: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#loupe{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color:#000000;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+
+#suggestionContainer{
+    overflow-y: auto;
+    max-height: 6rem;
+    position: absolute;
+    top: 100%;
+    z-index:70;
+    width: 100%;
+    
+}
+#suggestionContainer div {
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(255,255,255,1);
+    padding: 0.5em;
+    margin: 0.2em 0;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 2rem;
+
+    
+}
+#suggestionContainer div:hover,
+#suggestionContainer div:focus{
+     color: #FF0000;
+}
+
+/* paramètrage du tableau */
+
+.centreur{
+    margin: 0 auto;
+    width: 1500px;
+    max-width: 90vw;
+}
+
+.scrolleur{
+    overflow-y: auto;
+    width: 1500px;
+    max-width: 90vw;
+    height: 60vh;
+    background-color: rgba(0,0,0,0.65);
+    margin-bottom: 2em;
+    border-radius: 10px;
+}
+
+
+table{
+    width: 100%;
+}
+
+tr{
+    height: 7vh; 
+    text-align: center;
+    color: #F2F2F2;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(0,0,0,0.80);
+}
+
+tbody tr:nth-child(odd){
+    background-color: rgba(0,0,0,0.70);
+}
+
+tbody tr:nth-child(even):hover,
+tbody tr:nth-child(even):focus{
+    background-color: rgba(0,0,0,0.90);
+}
+
+tbody tr:nth-child(odd):hover,
+tbody tr:nth-child(odd):focus{
+    background-color: rgba(0,0,0,0.85);
+}
+
+th{
+    position: sticky;
+    top: 0;
+    background-color: black;
+    text-align: center;
+    padding: 0.5em;
+    box-sizing: border-box;
+    min-width: 0;
+    font-size:clamp(1rem, 4vw, 3rem);
+    color:rgb(255, 40, 40);
+}
+
+td{
+    text-align: center;
+    padding: 0.5em;
+    box-sizing: border-box;
+    font-size: clamp(0.5rem, 4vw, 2rem);
+}
+
+
+/* Gestion de la modale*/
+
+.openModal{
+    border-radius: 10px;
+}
+
+.closeModal,
+#retour{
+    position: absolute;
+    top: -1em !important;
+    color: #FFFFFF;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.closeModal{
+    right: -1em;
+}
+
+#returnIcon{
+    fill: #FFFFFF;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#retour{
+    display:flex;
+    left: -1em;
+    padding: 0;
+}
+
+.legend{
+    margin-top: 0.5em;
+}
+.textInsert{
+    display: inline-block;
+    margin-right: 2em;
+    font-weight: bold;
+}
+
+#total{
+    margin-right: 0;
+}
+
+.warningIcon{
+    fill: #FF0000;
+    background-color: yellow;
+}
+.mandatory{
+    color:#FF0000;
+}
+
+#modalTitleConteneur{
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#modalTitle{
+    color: #000000;
+}
+#modalCoreMessage{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+legend{
+    text-decoration: underline;
+    font-size: 2em;
+}
+
+#inputConteneur{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+}
+
+
+.conteneurLabelInput{
+    margin: 5px 10px;
+}
+
+/* pop-up*/
+
+.popUp{
+    overflow: visible;
+    border-radius: 20px;
+    border: 2px solid black;
+    text-align: center;
+}
+.popUpText{
+    margin: 2em;
+}
+
+form{
+    overflow: hidden;
+}
