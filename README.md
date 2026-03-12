@@ -1,7 +1,7 @@
 #Présentation du projet
 
-    Création d'une interface web permettant de réserver des billets pour les concert d'un youtuber nommé ABGYhuDJ.
-    Le projet comprend deux pages web, une page de présentation de l'artiste et de son univers, une page avec un calendrier recouvrant les différents concerts et la possibilité de réserver.
+    Création d'une interface web permettant de réserver des billets pour les concerts d'un youtuber nommé ABGYhuDJ.
+    Le projet comprend deux pages web, une page de présentation de l'artiste et de son univers, une page avec un calendrier annonçant les différents concerts et la possibilité de réserver.
 
 ##Stack technique
 
