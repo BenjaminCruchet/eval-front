@@ -176,10 +176,6 @@ td{
     padding: 0;
 }
 
-.legend{
-    margin-top: 0.5em;
-}
-
 .textInsert{
     display: inline-block;
     margin-right: 2em;
@@ -215,7 +211,8 @@ td{
 
 legend{
     text-decoration: underline;
-    font-size: 2em;
+    margin-top: 0.5em;
+    font-size: clamp(1rem,3vw,2rem);
 }
 
 #inputConteneur{

@@ -102,7 +102,7 @@ Contraste de couleur rendu satisfaisant en respectant les contraintes du client 
 
 Le projet comporte un fichier sitemap.xml et un fichier robots.txt pour optimiser le SEO.
 
-Le site a été déclaré dans Google Search Console et les balises HTML sont structurées ce qui facilite l'indexation sur site par les moteurs de recherche.
+Le site a été déclaré dans Google Search Console et les balises HTML sont structurées ce qui facilite l'indexation du site par les moteurs de recherche.
 
 
 ## Améliorations possibles :
