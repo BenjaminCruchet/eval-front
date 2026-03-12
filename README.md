@@ -1,4 +1,4 @@
-#Présentation du projet
+# Présentation du projet
 
 
 Création d'une interface web permettant de réserver des billets pour les concerts d'un youtuber nommé ABGYhuDJ.
@@ -6,14 +6,14 @@ Création d'une interface web permettant de réserver des billets pour les conce
 Le projet comprend deux pages web, une page de présentation de l'artiste et de son univers, une page avec un calendrier annonçant les différents concerts et la possibilité de réserver.
 
 
-##Stack technique :
+## Stack technique :
 
 
 HTML5 pour la structure des pages.
 
-Bootstrap pour la gestion du carousel sur la pas d'accueil.
+Bootstrap pour la gestion du carousel sur la page d'accueil.
 
-CSS3 pour la mise en forme et rendre le site responsive.
+CSS3 pour la mise en forme et pour rendre le site responsive.
 
 Javascript pour les interactions dynamiques, gestion du champ de recherche et des modales de réservation.
 
@@ -22,29 +22,50 @@ Git et Github pour le versionning du projet.
 GitHub pour l'hébergement du site via GitHub Pages.
 
 
-##Structure du projet :
+## Structure du projet :
 
-
-eval-front
 ├── CSS
-│ ├── global.css
-│ ├── index.css
-│ └── reservation.css
+│   ├── global.css
+│   ├── index.css
+│   └── reservation.css
 │
 ├── HTML
-│ └── reservation.html
+│   └── reservation.html
 │
 ├── Images
+│   ├── carousel3.webp
+│   ├── concert.webp
+│   ├── image2.webp
+│   ├── logo.webp
+│   └── resume.webp
 │
 ├── JavaScript
+│   └── reservation.js
 │
 ├── index.html
+├── Rapport-accessibilite-SEO.md
 ├── README.md
 ├── robots.txt
-└── sitemap.xml 
+└── sitemap.xml
 
 
-##Fonctionnement du site :
+## Maquettage :
+
+
+Maquettage réalisé via Figma.
+
+La page "composants" comprend certains des éléments utilisés dans la page "visuels".
+
+Elle a pour but de supporter la page "visuels" uniquement.
+
+Lancer la présentation pour naviguer via la page visuels
+
+Certaines fonctionnalités (suggestions automatique, ouverture de la modale d'erreur, filtre sur le tableau) ne sont pas implémentées sur la maquette mais sont bien présentes sur le site.
+
+Lien vers le document : https://www.figma.com/design/jjYCoRUgrAf85bR2tM0Hde/Eval-front?node-id=0-1&t=gTOvdeBhrsuUhNdP-1
+
+
+## Fonctionnement du site :
 
 
 La page d'accueil contient un carousel composé de trois cartes permettant de présenter brièvement l’univers de l’artiste ainsi que ses réseaux sociaux. Elle comporte également une bannière ainsi que trois boutons, un par carte, permettant d’accéder à la page principale du site : la page de réservation.
@@ -60,10 +81,10 @@ Enfin, les deux pages du site contiennent un encadré regroupant les information
 Les différentes interactions de l’interface (ouverture des modales, filtrage du tableau et génération des suggestions) sont gérées en JavaScript.
 
 
-##Accessibilité :
+## Accessibilité :
 
 
-L'accessibilité du site est assurée par des mesures suivantes :
+L'accessibilité du site est assurée par les mesures suivantes :
 
 Utilisation de balises HTML sémantiques.
 
@@ -76,7 +97,7 @@ Utilisation d'une classe "visually-hiden" pour les éléments destinés aux lect
 Contraste de couleur rendu satisfaisant en respectant les contraintes du client (couleur rouge dominante).
 
 
-##Référencement :
+## Référencement :
 
 
 Le projet comporte un fichier sitemap.xml et un fichier robots.txt pour optimiser le SEO.
@@ -84,7 +105,7 @@ Le projet comporte un fichier sitemap.xml et un fichier robots.txt pour optimise
 Le site a été déclaré dans Google Search Console et les balises HTML sont structurées ce qui facilite l'indexation sur site par les moteurs de recherche.
 
 
-##Améliorations possibles :
+## Améliorations possibles :
 
 
 Site non intégralement responsive à date.

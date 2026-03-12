@@ -20,10 +20,11 @@ h1, h2, h3, h4, h5, h6{
 #title{
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI';
     color: #FFFFFF;
-    font-size: clamp(1.5rem,6vw,4rem);
+    font-size: clamp(1.5rem,5vw,3.5rem);
 }
 
 header{
+    position : relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,19 +34,19 @@ header{
     max-width: 100vw;
     border: 3px solid #FF0000;
     background-color: rgba(0,0,0,0.80);
-    padding: 1vh;
+    padding: 1em;
 }
 
 h2{
-    font-size: clamp(1.2rem,5vw,2.5rem);
+    font-size: clamp(1.2rem,4vw,2.4rem);
 }
 h3{
-    font-size: clamp(1rem,4vw,2rem);
+    font-size: clamp(1rem,3vw,2rem);
 }
 
 p{
     font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    font-size: clamp(0.5rem, 3vw, 1.5rem);
+    font-size: clamp(0.5rem, 2vw, 1.4rem);
 }
 
 main{

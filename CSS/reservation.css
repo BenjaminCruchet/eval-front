@@ -1,7 +1,10 @@
 #home{
+    position : absolute;
     fill: #FFFFFF;
-    width: 3em;
-    height: 3em;
+    width: clamp(1.5rem,6vw,3.5rem);
+    height: clamp(1.5rem,6vw,3.5rem);
+    left : 10px;
+    bottom : 1.5em;
 }
 
 /* champs de texte (recherche et modales) */
@@ -25,7 +28,6 @@ input::placeholder{
     align-self:first baseline;
     width: 375px;
     max-width:100%;
-    margin-bottom: 3vh;
 }
 
 #searchBarre{
