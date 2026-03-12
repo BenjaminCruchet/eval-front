@@ -201,11 +201,11 @@
                     <p> Par mail : abgyhudj.tournee@gmail.com </p>
                 </div>
 
-            <dialog class="popUp" id="popUpResa" aria-labelledby="popUpResaAccessTitle" aria-describedby="popUpResaAccessDescription">
-                    <h2 class="visually-hidden" id="popUpResaAccessTitle"> Formulaire de réservation </h2>
-                    <p class= "visually-hidden" id="popUpResaAccessDescription"> Formulaire de réservation pour le concert de ABGYhuDJ le <span class="modalDate"></span> à <span class="modalVille"></span>, salle <span class="modalLieu"></span> à 20h
+            <dialog class="popUp" id="popUpReservation" aria-labelledby="popUpReservationAccessTitle" aria-describedby="popUpReservationAccessDescription">
+                    <h2 class="visually-hidden" id="popUpReservationAccessTitle"> Formulaire de réservation </h2>
+                    <p class= "visually-hidden" id="popUpReservationAccessDescription"> Formulaire de réservation pour le concert de ABGYhuDJ le <span class="modalDate"></span> à <span class="modalVille"></span>, salle <span class="modalLieu"></span> à 20h
                     </p>
-                <button type="button" class="closeModal" id="closepopUpResa">X</button>
+                <button type="button" class="closeModal" id="closepopUpReservation">X</button>
                 <div class="conteneur" id="modalTitleConteneur">
                     <h2 id="modalTitle"> Concert de ABGYhuDJ </h2>
                 </div>
@@ -238,7 +238,7 @@
                         <path d="m40-120 440-760 440 760H40Zm138-80h604L480-720 178-200Zm330.5-51.5Q520-263 520-280t-11.5-28.5Q497-320 480-320t-28.5 11.5Q440-297 440-280t11.5 28.5Q463-240 480-240t28.5-11.5ZM440-360h80v-200h-80v200Zm40-100Z"/>
                     </svg>
                 </div>
-                <form id="mainForm">
+                <form id="formPopUpReservation">
                     <fieldset>
                         <legend class="legend"> Informations personnelles : </legend>
                             <div class="conteneur" id="inputConteneur"> 
@@ -310,9 +310,9 @@
                 </p>
                 <p class="popUpText"> Ce concert débutera à 20h. </p>
                 
-                <form>     
+                <div class="buttonContainer">     
                     <button type="button" class="secondary-button" id="validationCommande"> Confirmer </button>
-                </form>    
+                </div>    
                 
             </dialog>
 
