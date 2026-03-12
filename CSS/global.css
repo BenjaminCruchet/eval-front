@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgba(255, 223, 217, 0.10),rgba(255, 223, 217, 0.10)), url(./Images/concert.png);
+    background: linear-gradient(rgba(255, 223, 217, 0.10),rgba(255, 223, 217, 0.10)), url(../Images/concert.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

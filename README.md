@@ -14,20 +14,6 @@
 
 ##Structure du projet :
 
-eval-front
-|── README.md
-│
-├── index.html
-├── reservation.html
-├── index.css
-├── reservation.css
-├── reservation.js
-│
-├── Images/
-│
-├── robots.txt
-└── sitemap.xml
-
 ##Fonctionnement du site 
 
     La page d'accueil contient un carousel composé de trois cartes permettant de présenter brièvement l’univers de l’artiste ainsi que ses réseaux sociaux. Elle comporte également une bannière ainsi que trois boutons, un par carte, permettant d’accéder à la page principale du site : la page de réservation.
